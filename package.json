@@ -4,7 +4,8 @@
   "description": "react 项目模板",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.dev.js"
+    "dev": "webpack-dev-server --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js"
   },
   "keywords": [
     "react",

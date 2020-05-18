@@ -1,5 +1,4 @@
 const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const resolve = src => path.resolve(__dirname, src)
 
@@ -8,14 +7,14 @@ module.exports = {
   entry: {
     main: [
       'babel-polyfill',
-      resolve('../src/main.js')
+      resolve('../src/App.js')
     ]
   },
   output: {
     path: resolve('../dist'),
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: 'chunk/[name].[chunkhash].js'
+    chunkFilename: 'chunk/[name].[chunkhash:6].js'
   },
   module: {
     rules: [
@@ -26,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
-        use: ['less-loader', 'style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /.(png|jpg|gif|svg)$/,
@@ -42,7 +41,5 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
   },
-  plugins: [
-    new CleanWebpackPlugin()
-  ]
+  plugins: []
 }

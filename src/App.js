@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactDOM from "react-dom"
+import './global.less'
 
 class App extends React.Component {
   constructor() {
@@ -6,9 +8,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>这是个 APP</div>
+      <div>这是个 React APP</div>
     );
   }
 }
 
-export default App;
+ReactDOM.render(<App/>, document.getElementById('root'))
