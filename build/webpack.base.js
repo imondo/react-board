@@ -1,6 +1,6 @@
 const path = require('path')
 
-const resolve = src => path.resolve(__dirname, src)
+const resolve = dir => path.resolve(__dirname, dir)
 
 module.exports = {
   mode: '',
@@ -38,6 +38,10 @@ module.exports = {
     ]
   },
   resolve: {
+    // 设置别名
+    alias: {
+      '@': resolve('../src')
+    },
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
   },
