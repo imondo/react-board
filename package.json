@@ -14,8 +14,11 @@
   "author": "Mondo",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
