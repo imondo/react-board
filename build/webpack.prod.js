@@ -8,6 +8,7 @@ const config = require('./../config')
 const prodConfig = {
   mode: config.prod.NODE_ENV,
   output: {
+    publicPath: config.prod.publicPath,
     filename: '[name].[contentHash:6].js',
     chunkFilename: 'chunk/[name].[chunkhash:6].js'
   },  
