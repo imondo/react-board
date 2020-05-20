@@ -1,5 +1,5 @@
 const path = require('path')
-
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const resolve = dir => path.resolve(__dirname, dir)
 
 module.exports = {
@@ -25,20 +25,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [ 'style-loader', 'css-loader']
       },      
       {
         test: /\.less$/,
         use: [
           'style-loader',
           'css-loader',
-          {
-            loader: 'px2rem-loader',
-            options: {
-              remUni: 75,
-              remPrecision: 6,
-            }
-          }, 'less-loader']
+          // {
+          //   loader: 'px2rem-loader',
+          //   options: {
+          //     remUni: 75,
+          //     remPrecision: 6,
+          //   }
+          // },
+          'less-loader']
       },
       {
         test: /.(png|jpg|gif|svg)$/,
@@ -58,5 +59,7 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
   },
-  plugins: []
+  plugins: [
+    new FriendlyErrorsWebpackPlugin()
+  ]
 }

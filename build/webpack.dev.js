@@ -10,6 +10,7 @@ const devConfig = {
   mode: config.dev.NODE_ENV,
   devtool: 'source-map',
   devServer: {
+    stats: 'errors-only',
     contentBase: "./dist",
     port: PORT,
     hot: true,

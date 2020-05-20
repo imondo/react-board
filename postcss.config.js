@@ -1,6 +1,18 @@
 module.exports = {
   parser: 'postcss-strip-inline-comments',
   plugins: {
+    'postcss-plugin-px2rem': {
+      exclude: /(node_module)/,
+      rootValue: 37.5,
+      unitPrecision: 3,
+      propWhiteList: [],
+      propBlackList: [],
+      selectorBlackList: [],
+      ignoreIdentifier: false,
+      replace: true,
+      mediaQuery: false,
+      minPixelValue: 0
+    },
     "postcss-px-to-viewport": {
       viewportWidth: 375,   // 视窗的宽度，对应的是我们设计稿的宽度，Iphone6的一般是375 （xx/375*100vw）
       viewportHeight: 667, // 视窗的高度，Iphone6的一般是667

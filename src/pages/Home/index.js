@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'antd-mobile';
 import { getUser } from "@/api";
 
 getUser().then(res => {
@@ -13,7 +14,9 @@ function Home() {
       setUser(user.name);
     })
   }, [user]);
-  return <div>{user}</div>
+  return <div>{user}
+    <Button>点击</Button>
+  </div>
 }
 
 export default Home;

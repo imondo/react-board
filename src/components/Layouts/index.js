@@ -1,10 +1,10 @@
 import React from 'react';
 import TabBar from './TabBar';
-import NavBar from './NavBar';
+import BaseNavBar from './BaseNavBar';
 
 function Layouts(props) {
   return <div>
-    <NavBar />
+    <BaseNavBar />
     <div className="main">{props.children}</div>
     <TabBar />
   </div>
