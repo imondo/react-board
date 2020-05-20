@@ -1,5 +1,6 @@
-import Home from "../pages/Home/index"
-import Me from "../pages/Me/index"
+import Home from "@/pages/Home"
+import Me from "@/pages/Me"
+import Test from "@/pages/Test"
 
 console.log(typeof process.env.API)
 
@@ -13,6 +14,11 @@ const routes = [
     path: "/me",
     exact: true,
     component: Me
+  },
+  {
+    path: "/test",
+    exact: true,
+    component: Test
   }
 ];
 

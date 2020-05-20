@@ -24,8 +24,21 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(css|less)$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },      
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'px2rem-loader',
+            options: {
+              remUni: 75,
+              remPrecision: 6,
+            }
+          }, 'less-loader']
       },
       {
         test: /.(png|jpg|gif|svg)$/,

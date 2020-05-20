@@ -5,14 +5,14 @@ import routes from './routes'
 import { HashRouter as Router, Link } from 'react-router-dom'
 import './global.less'
 
-import TabBar from "./components/Layouts/TabBar";
+import Layouts from "./components/Layouts";
 
 function App() {
   return (
     <Router>
-      <div>这是个 React APP</div>
-      <TabBar/>
-      {renderRoutes(routes)}
+      <Layouts>
+        {renderRoutes(routes)}
+      </Layouts>
     </Router>
   )
 }

@@ -7,3 +7,9 @@ export function getUser() {
     }
   })
 }
+
+export function getImages() {
+  return http.get(`https://www.omdbapi.com/?s=man&apikey=4a3b711b`).then(res => {
+    return res.Search
+  })
+}
