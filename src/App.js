@@ -5,7 +5,7 @@ import routes from './routes'
 import { HashRouter as Router } from 'react-router-dom'
 import './global.less'
 
-import './utils/rem';
+// import "./utils/flexible.js"
 
 import Layouts from "./components/Layouts";
 

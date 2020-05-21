@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { smart } = require('webpack-merge')
 const base = require('./webpack.base.js')
 const config = require('./../config')
@@ -21,11 +20,7 @@ const devConfig = {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(config.dev)
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      filename: 'index.html'
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
 

@@ -1,5 +1,6 @@
 const path = require('path')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const resolve = dir => path.resolve(__dirname, dir)
 
 module.exports = {
@@ -24,22 +25,13 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader']
-      },      
-      {
-        test: /\.less$/,
+        test: /\.(css|less)$/,
         use: [
           'style-loader',
           'css-loader',
-          // {
-          //   loader: 'px2rem-loader',
-          //   options: {
-          //     remUni: 75,
-          //     remPrecision: 6,
-          //   }
-          // },
-          'less-loader']
+          'less-loader',
+          'postcss-less-loader'
+        ]
       },
       {
         test: /.(png|jpg|gif|svg)$/,
@@ -60,6 +52,24 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   plugins: [
-    new FriendlyErrorsWebpackPlugin()
-  ]
+    new FriendlyErrorsWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'React Board',
+      template: 'public/index.html',
+      filename: 'index.html',
+      files: {
+        js: [
+          '//unpkg.com/swiper/js/swiper.min.js',
+          '//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js'
+        ],
+        css: [
+          '//unpkg.com/swiper/css/swiper.min.css'
+        ]
+      }
+    })
+  ],
+  externals: {
+    vue: 'Vue',
+    swiper: 'Swiper'
+  }
 }

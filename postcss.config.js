@@ -1,18 +1,6 @@
 module.exports = {
-  parser: 'postcss-strip-inline-comments',
   plugins: {
-    'postcss-plugin-px2rem': {
-      exclude: /(node_module)/,
-      rootValue: 37.5,
-      unitPrecision: 3,
-      propWhiteList: [],
-      propBlackList: [],
-      selectorBlackList: [],
-      ignoreIdentifier: false,
-      replace: true,
-      mediaQuery: false,
-      minPixelValue: 0
-    },
+    "autoprefixer": {},
     "postcss-px-to-viewport": {
       viewportWidth: 375,   // 视窗的宽度，对应的是我们设计稿的宽度，Iphone6的一般是375 （xx/375*100vw）
       viewportHeight: 667, // 视窗的高度，Iphone6的一般是667
@@ -20,7 +8,16 @@ module.exports = {
       viewportUnit: "vw",   // 指定需要转换成的视窗单位，建议使用vw
       selectorBlackList: ['.ignore', '.hairlines'],// 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名
       minPixelValue: 1,     // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
-      mediaQuery: false     // 允许在媒体查询中转换`px`
+      mediaQuery: false,     // 允许在媒体查询中转换`px`
+      exclude: /(node_module)/i
     },
+    // "postcss-plugin-px2rem": {
+    //   rootValue: 75,// 配合lib-flexible使用 750的设计稿
+    //   unitPrecision: 5,
+    //   mediaQuery: true,
+    //   exclude: /(node_module)/i,
+    //   selectorBlackList: ['html', 'mint-', 'mt-', 'mpvue-', 'calendar', 'iconfont'], // 在rem.js全局作用下，排除指定的文件的影响
+    //   propBlackList: ['border'] // 过滤属性
+    // }  
   }
 }
