@@ -25,7 +25,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(css|less)$/,
+        test: /\.(less|css)$/,
         use: [
           'style-loader',
           'css-loader',
