@@ -1,6 +1,8 @@
 import Home from "@/pages/Home"
 import Me from "@/pages/Me"
+import Hooks from "@/pages/Hooks"
 import Test from "@/pages/Test"
+import About from "@/pages/Me/About"
 
 console.log(typeof process.env.API)
 
@@ -16,8 +18,20 @@ const routes = [
     component: Me
   },
   {
-    path: "/test",
+    path: "/me/:id",
     exact: true,
+    component: About
+  },
+  {
+    path: "/about",
+    component: About
+  },
+  {
+    path: "/hooks",
+    component: Hooks
+  },
+  {
+    path: "/test",
     component: Test
   }
 ];

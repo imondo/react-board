@@ -7,6 +7,7 @@ function TabBar() {
     <div className="tabbar">
       <Link className="tabbar-item" to="/home">Home</Link>
       <Link className="tabbar-item" to="/me">Me</Link>
+      <Link className="tabbar-item" to="/hooks">Hooks</Link>
       <Link className="tabbar-item" to="/test">Test</Link>
     </div>
   )

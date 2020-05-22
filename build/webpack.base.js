@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     main: [
       'babel-polyfill',
-      resolve('../src/App.js')
+      resolve('../src/main.js')
     ]
   },
   output: {

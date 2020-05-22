@@ -1,22 +1,19 @@
 import React from 'react'
-import ReactDOM from "react-dom"
+import { TabBar, BaseNavBar } from "./components/Layouts"
 import { renderRoutes } from 'react-router-config'
 import routes from './routes'
 import { HashRouter as Router } from 'react-router-dom'
-import './global.less'
-
-// import "./utils/flexible.js"
-
-import Layouts from "./components/Layouts";
 
 function App() {
   return (
     <Router>
-      <Layouts>
+      <BaseNavBar />
+      <div className="main">
         {renderRoutes(routes)}
-      </Layouts>
+      </div>
+      <TabBar />
     </Router>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+export default App;
