@@ -12,9 +12,6 @@
         FastClick.attach(document.body);
       }, false);
     }
-    if (!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
-    }
   </script>
   <title><%= htmlWebpackPlugin.options.title %></title>
   <!-- require cdn assets css -->
@@ -23,7 +20,7 @@
   <% } %>
 </head>
 
-<body>
+<body style="touch-action: manipulation">
   <div id="root"></div>
   <!-- require cdn assets js -->
   <% for (var i in htmlWebpackPlugin.options.files.js) { %>
