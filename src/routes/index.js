@@ -1,7 +1,7 @@
 import Home from "@/pages/Home"
 import Me from "@/pages/Me"
 import Hooks from "@/pages/Hooks"
-import Test from "@/pages/Test"
+import Parent from "@/pages/Test/props"
 import About from "@/pages/Me/About"
 
 console.log(typeof process.env.API)
@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: "/test",
-    component: Test
+    component: Parent
   }
 ];
 

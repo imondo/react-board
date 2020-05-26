@@ -14,11 +14,14 @@ function Home() {
       setUser(user.name);
     })
   }, [user]);
-  return <div>{user}
-    <Button>点击</Button>
-    <p className="base-font">基础字体大小</p>
-    <p className="base-font-vw">对比字体大小</p>
-  </div>
+  return (
+    <div>
+      <a href={`//${user}`} target="_blank">{user}</a>
+      <Button>点击</Button>
+      <p className="base-font">基础字体大小</p>
+      <p className="base-font-vw">对比字体大小</p>
+    </div>
+  )
 }
 
 export default Home;
