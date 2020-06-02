@@ -4,7 +4,7 @@ import App from "./App"
 
 import './global.less'
 
-// import "./utils/flexible.js"
+import "./utils/flexible.js"
 
 ReactDOM.render(
   <App/>,
