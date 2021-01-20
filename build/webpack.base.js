@@ -1,75 +1,37 @@
-const path = require('path')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const resolve = dir => path.resolve(__dirname, dir)
 
 module.exports = {
-  mode: '',
   entry: {
-    main: [
-      'babel-polyfill',
-      resolve('../src/main.js')
-    ]
+    app: resolve('../src/App.js')
   },
   output: {
     path: resolve('../dist'),
     publicPath: '/',
-    filename: '[name].js',
-    chunkFilename: 'chunk/[name].[chunkhash:6].js'
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        use: ['babel-loader'],
         exclude: /node_modules/
-      },
-      {
-        test: /\.(less|css)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'less-loader',
-          'postcss-less-loader'
-        ]
-      },
-      {
-        test: /.(png|jpg|gif|svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 1000,
-          name: '[name].[ext]?[hash]'
-        }
       }
     ]
   },
-  resolve: {
-    // 设置别名
-    alias: {
-      '@': resolve('../src')
-    },
-    modules: ['node_modules'],
-    extensions: ['.js', '.jsx']
-  },
   plugins: [
-    new FriendlyErrorsWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React Board',
-      template: 'public/index.html',
+      title: 'React Web',
       filename: 'index.html',
+      template: 'src/index.html',
       files: {
         js: [
-          '//unpkg.com/swiper/js/swiper.min.js',
           '//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js'
         ],
-        css: [
-          '//unpkg.com/swiper/css/swiper.min.css'
-        ]
+        css: []
       }
     })
-  ],
-  externals: {
-    vue: 'Vue',
-    swiper: 'Swiper'
-  }
+  ]
 }

@@ -1,7 +1,7 @@
-const dev = require('./dev')
-const prod = require('./prod')
+const dev = require('./dev');
+const build = require('./build');
 
 module.exports = {
   dev,
-  prod
+  build
 }

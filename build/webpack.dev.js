@@ -1,28 +1,19 @@
-const webpack = require('webpack')
-const { smart } = require('webpack-merge')
-const base = require('./webpack.base.js')
-const config = require('./../config')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
 
-const PORT = process.env.PORT || 1220
+const base = require('./webpack.base');
+const config = require('../config');
 
-const devConfig = {
+module.exports = merge(base, {
   mode: config.dev.NODE_ENV,
-  devtool: 'source-map',
-  devServer: {
-    stats: 'errors-only',
-    contentBase: "./dist",
-    port: PORT,
-    hot: true,
-    open: true,
-    historyApiFallback: true
-  },
+  devtool: "source-map",
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(config.dev)
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
-}
-
-
-module.exports = smart(base, devConfig);
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+  devServer: {
+    contentBase: './dist',
+    port: 9527,
+    hot: true,
+    open: true
+  }
+})

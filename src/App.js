@@ -1,23 +1,11 @@
-import React from 'react'
-import { TabBar, BaseNavBar } from "./components/Layouts"
-import { renderRoutes } from 'react-router-config'
-import routes from './routes'
-import { HashRouter as Router } from 'react-router-dom'
-import { Provider } from "react-redux"
-import store from "./store"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Index from './TimeLine1.jsx';
 
-function App() {
+const App = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <BaseNavBar />
-        <div className="main">
-          {renderRoutes(routes)}
-        </div>
-        <TabBar />
-      </Router>
-    </Provider>
+    <div>React Apps</div>
   )
 }
 
-export default App;
+ReactDOM.render(<Index/>, document.querySelector('#app'))
